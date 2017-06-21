@@ -31,16 +31,22 @@ require(__DIR__ . "/vendor/autoload.php");
 
 use Ierusalim\GitHubWebhook\Handler;
 
-$handler = new Handler("<secret_as_on_github>", "my_webhook_function");
-if($handler->handle()) {
-    echo "OK";
-} else {
-    echo "Wrong secret";
+$handler = new Handler("<secret_as_on_github>", function($in_arr) {
+	// $in_arr contains [event],[data], and [delivery];
+	//... do any work in whis function and return "true"...
+        //Alternatively, you can return $in_arr
+        // and process it outside of this function
+	return $in_arr; //or true. Do not return false or NULL if no errors.
+});
+
+$in_arr = $handler->handle();
+
+if(!$in_arr) {
+    die("ERROR. May be wrong secret?");
 }
-function my_webhook_function($in_arr) {
-    extract($in_arr); //function get $event and $data
-    ... do any work ...
-}
+//... You can process data $in_arr here, or inside the function above ...
+print_r($in_arr);
+
 ```
 
 In the script above `<secret_as_on_github>` should be some random string 
