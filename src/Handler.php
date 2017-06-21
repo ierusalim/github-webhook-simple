@@ -43,7 +43,7 @@ class Handler
         if (!$this->validate()) {
             return false;
         }
-        return call_user_func_array(
+        return call_user_func(
             $this->webhookCall,[
                 'event'=>$this->event,
                 'delivery'=>$this->delivery,
