@@ -64,7 +64,7 @@ To set up a repository webhook on GitHub, head over to the **Settings** page of 
 repository, and click on **Webhooks & services**. After that, click on **Add webhook**.
 
 Fill in following values in form:
-* **Payload URL** - Enter full URL to your webhook script
+* **Payload URL** - Enter full URL to your webhook script, with https or http
 * **Content type** - Select "application/json" mode
 * **Secret** - Same secret you pass to constructor of `Handler` object
 * Webhook should receive only push events and of course be active
