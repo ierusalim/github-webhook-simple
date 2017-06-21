@@ -65,7 +65,7 @@ repository, and click on **Webhooks & services**. After that, click on **Add web
 
 Fill in following values in form:
 * **Payload URL** - Enter full URL to your webhook script
-* **Content type** - Can be either "application/json" or "application/x-www-form-urlencoded"
+* **Content type** - Select "application/json" mode
 * **Secret** - Same secret you pass to constructor of `Handler` object
 * Webhook should receive only push events and of course be active
 
